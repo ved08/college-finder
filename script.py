@@ -19,12 +19,12 @@ Enter 6 \n  for Bachelor of Design (B.Des)\n
 Enter 7 \n  for Bachelor of Fine Arts (B.F.A)\n
 Enter 8 \n  for Bachelor of Business Administration (B.B.A)\n
 Enter 9 \n  for Bachelor of Architecture (B.Arch)\n
-Enter 10 \n  for Chartered Accountancy (CA)  ''')
+Enter 10 \n  for Chartered Accountancy (C.A)  ''')
     
 course=int(input('\nEnter course number:'))
+coursedict={1:'B.Sc',2:'B.Tech',3:'B.A',4:'MBBS',5:'B.Com',6:'B.Des',7:'B.F.A',8:'B.B.A',9:'B.Arch',10:'C.A'}
 
-
-#run query for the selected course
+#CITIES
 
 
 print('''\n--------------------------------------------------------------------------------\n
@@ -49,7 +49,7 @@ Enter 0 \n  TO SKIP QUESTION\n''')
 city=int(input('\nEnter city number:'))
 
 
-#run query for city, if statement for skip option incase zero entered
+#FEE RANGE
 
 
 print('''\n--------------------------------------------------------------------------------\n
@@ -68,7 +68,7 @@ Enter 0 \n  TO SKIP QUESTION\n''')
 fee=int(input('\nEnter fee range number:'))
 
 
-#run query for fee range, if statement for skip option incase zero entered
+#PERCENTAGE IN CLASS 12
 
 
 print('''\n--------------------------------------------------------------------------------\n
@@ -81,3 +81,7 @@ Enter Class 12 percentage: 80
 \n--------------------------------------------------------------------------------\n''')
 
 percentage=int(input('\nEnter Class 12 percentage:'))
+
+
+#select * from colleges where 
+
