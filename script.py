@@ -3,6 +3,7 @@ mycon=sql.connect(host='localhost',user='root',passwd='ved08',database='colleges
 cur=mycon.cursor()                                                                            #cursor instance created
       
       
+      
 print('''
 WELCOME TO THE COLLEGE FINDER PROGRAM!
 ----------------------------------------
@@ -22,7 +23,9 @@ Enter 9 \n  for Bachelor of Architecture (B.Arch)\n
 Enter 10 \n  for Chartered Accountancy (C.A)  ''')
     
 course=int(input('\nEnter course number:'))
-coursedict={1:'B.Sc',2:'B.Tech',3:'B.A',4:'MBBS',5:'B.Com',6:'B.Des',7:'B.F.A',8:'B.B.A',9:'B.Arch',10:'C.A'}
+
+coursedict={1:'B.Sc',2:'B.Tech',3:'B.A',4:'MBBS',5:'B.Com',
+            6:'B.Des',7:'B.F.A',8:'B.B.A',9:'B.Arch',10:'C.A'}
 
 #CITIES
 
@@ -48,6 +51,8 @@ Enter 0 \n  TO SKIP QUESTION\n''')
 
 city=int(input('\nEnter city number:'))
 
+citydict={1:'Bangalore',2:'Chennai',3:'Delhi',4:'Hyderabad',5:'Indore',6:'Jaipur',
+          7:'Kharagpur',8:'Kolkata',9:'Manipal',10:'Mumbai',11:'Pune',12:'Varanasi',13:'Vellore'}
 
 #FEE RANGE
 
@@ -66,6 +71,14 @@ Enter 5 \n  for >20 Lakhs P.A.\n
 Enter 0 \n  TO SKIP QUESTION\n''')
 
 fee=int(input('\nEnter fee range number:'))
+
+
+
+
+feedict={1:'1'} #FOR VED /\. ALL THE BEST BRO
+
+
+
 
 
 #PERCENTAGE IN CLASS 12
