@@ -1,5 +1,5 @@
 import mysql.connector as sql
-mycon=sql.connect(host='localhost',user='ved08',passwd='ved08',database='colleges')           #connectivity established
+mycon=sql.connect(host='localhost',user='root',passwd='ved08',database='colleges')           #connectivity established
 cur=mycon.cursor()                                                                            #cursor instance created
 
 print('\nWELCOME TO THE COLLEGE FINDER PROGRAM! \n----------------------------------------\n')
