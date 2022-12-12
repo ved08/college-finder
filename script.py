@@ -24,10 +24,7 @@ Enter 10 \n  for Chartered Accountancy (CA)  ''')
 course=int(input('\nEnter course number:'))
 
 
-
 #run query for the selected course
-
-
 
 
 print('''\n--------------------------------------------------------------------------------\n
@@ -84,4 +81,3 @@ Enter Class 12 percentage: 80
 \n--------------------------------------------------------------------------------\n''')
 
 percentage=int(input('\nEnter Class 12 percentage:'))
-
