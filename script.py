@@ -1,5 +1,5 @@
-import mysql.connector as sql
-mycon=sql.connect(host='localhost',user='root',passwd='ved08',database='colleges')           #connectivity established
+import mysql.connector as sqltor
+mycon=sqltor.connect(host='localhost',user='root',passwd='ved08',database='colleges')           #connectivity established
 cur=mycon.cursor()                                                                            #cursor instance created
            
 print('''
@@ -9,6 +9,8 @@ WELCOME TO THE COLLEGE FINDER PROGRAM!
 Search for the course you want to study from the index below
 and type the associated number.
 \n--------------------------------------------------------------------------------\n''')
+
+#COURSES
 
 print('''Enter 1 \n  for Bachelor of Science (B.Sc)\n
 Enter 2 \n  for Bachelor of Technology (B.Tech)\n
@@ -34,7 +36,6 @@ coursedict={1:'B.Sc',
             0:'C.A'}
 
 #CITIES
-
 
 print('''\n--------------------------------------------------------------------------------\n
 Search for your preferred city from the index below
@@ -76,7 +77,6 @@ citydict={
 
 #FEE RANGE
 
-
 print('''\n--------------------------------------------------------------------------------\n
 What is your ideal fee range? Browse in the index below
 and type the associated number.
@@ -84,18 +84,15 @@ and type the associated number.
 *Don't worry, there will be scholarship websites provided for each result later!*
 \n--------------------------------------------------------------------------------\n''')
 print('''Enter 1 \n   for <1 Lakhs P.A.\n
-Enter 2 \n  for 1 - 5 Lakhs P.A.\n
-Enter 3 \n  for 5 - 10 Lakhs P.A.\n
-Enter 4 \n  for 10 - 20 Lakhs P.A.\n
+Enter 2 \n  for <5 Lakhs P.A.\n
+Enter 3 \n  for <10 Lakhs P.A.\n
+Enter 4 \n  for <20 Lakhs P.A.\n
 Enter 5 \n  for >20 Lakhs P.A.\n
 Enter 0 \n  TO SKIP QUESTION\n''')
 
 fee=int(input('\nEnter fee range number:'))
 
-
-
 #PERCENTAGE IN CLASS 12
-
 
 print('''\n--------------------------------------------------------------------------------\n
 What was your percentage scored in Class 12 Final Exams (or equivalent)?
@@ -109,12 +106,7 @@ Enter Class 12 percentage: 80
 percentage=int(input('\nEnter Class 12 percentage:'))
 
 
-#select * from colleges where 
-
-
-#extract fee values and convert to int
-
-
+#CREATING THE QUERY WITH PARAMETERISED VALUES AND EXTRACTING DATA
 
 
 tuple1=(coursedict.get(course),citydict.get(city),fee,percentage)
@@ -125,5 +117,3 @@ data=cur.fetchall()
 for row in data:
     print(row)
 mycon.close()
-
-  
