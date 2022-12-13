@@ -5,6 +5,7 @@ cur=mycon.cursor()                                                              
       
       
       
+      
 print('''
 WELCOME TO THE COLLEGE FINDER PROGRAM!
 ----------------------------------------
@@ -33,7 +34,7 @@ coursedict={1:'B.Sc',
             6:'B.Des',
             7:'B.F.A',
             8:'B.B.A',
-            9:'B.Arch',1
+            9:'B.Arch',
             0:'C.A'}
 
 #CITIES
@@ -73,7 +74,8 @@ citydict={
     10:'Mumbai',
     11:'Pune',
     12:'Varanasi',
-    13:'Vellore'
+    13:'Vellore',
+    0:'%'
 }
 
 #FEE RANGE
@@ -128,21 +130,13 @@ percentage=int(input('\nEnter Class 12 percentage:'))
 
 print("Hello this is my query",fee_range_statement_for_query)
 
-if city==0:
-    query='select * from colleges where Course=%s and %s and Percentage_Required<%s;'
-    tuple1=(coursedict.get(course),FEE RANGE PART KO UPDATE KARO SAALO,percentage)
+tuple1=(coursedict.get(course),citydict.get(city),'FEE RANGE PART KO UPDATE KARO SAALO',percentage)
 
-    cur.execute(query,tuple1)
-    data=cur.fetchall()
-    for row in data:
-        print(row)
-else:
-    query='select * from colleges where Course=%s and City=%s and %s and Percentage_Required<%s;'
-    tuple1=(coursedict.get(course),citydict.get(city),FEE RANGE PART KO UPDATE KARO SAALO,percentage)
-
-    cur.execute(query,tuple1)
-    data=cur.fetchall()
-    for row in data:
-        print(row)
+query='select * from colleges where Course like %s and City like %s and %s and Percentage_Required<%s;'
+cur.execute(query,tuple1)
+data=cur.fetchall()
+for row in data:
+    print(row)
 mycon.close()
 
+  
