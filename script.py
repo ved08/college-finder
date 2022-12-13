@@ -11,6 +11,7 @@ WELCOME TO THE COLLEGE FINDER PROGRAM!
 Search for the course you want to study from the index below
 and type the associated number.
 \n--------------------------------------------------------------------------------\n''')
+
 print('''Enter 1 \n  for Bachelor of Science (B.Sc)\n
 Enter 2 \n  for Bachelor of Technology (B.Tech)\n
 Enter 3 \n  for Bachelor of Arts (B.A)\n
@@ -20,8 +21,7 @@ Enter 6 \n  for Bachelor of Design (B.Des)\n
 Enter 7 \n  for Bachelor of Fine Arts (B.F.A)\n
 Enter 8 \n  for Bachelor of Business Administration (B.B.A)\n
 Enter 9 \n  for Bachelor of Architecture (B.Arch)\n
-Enter 10 \n  for Chartered Accountancy (C.A)  ''')
-    
+Enter 10 \n  for Chartered Accountancy (C.A)  ''')   
 course=int(input('\nEnter course number:'))
 
 coursedict={1:'B.Sc',2:'B.Tech',3:'B.A',4:'MBBS',5:'B.Com',
@@ -51,8 +51,21 @@ Enter 0 \n  TO SKIP QUESTION\n''')
 
 city=int(input('\nEnter city number:'))
 
-citydict={1:'Bangalore',2:'Chennai',3:'Delhi',4:'Hyderabad',5:'Indore',6:'Jaipur',
-          7:'Kharagpur',8:'Kolkata',9:'Manipal',10:'Mumbai',11:'Pune',12:'Varanasi',13:'Vellore'}
+citydict={
+    1:'Bangalore',
+    2:'Chennai',
+    3:'Delhi',
+    4:'Hyderabad',
+    5:'Indore',
+    6:'Jaipur',
+    7:'Kharagpur',
+    8:'Kolkata',
+    9:'Manipal',
+    10:'Mumbai',
+    11:'Pune',
+    12:'Varanasi',
+    13:'Vellore'
+}
 
 #FEE RANGE
 
@@ -72,11 +85,12 @@ Enter 0 \n  TO SKIP QUESTION\n''')
 
 fee=int(input('\nEnter fee range number:'))
 
-
-
-
-feedict={1:'1'} #FOR VED /\. ALL THE BEST BRO
-
+feedict={1: [0, 100000], 2: [100000,500000], 3: [500000, 1000000], 4: [1000000, 2000000], 5: [2000000, 9999999999999]}
+fee_range_statement_for_query = None
+if fee == 0:
+    fee_range_statement_for_query = None    
+else:
+    fee_range_statement_for_query = "colleges.fee_range_pa BETWEEN {} AND {}".format(feedict[fee][0], feedict[fee][1])
 
 
 
@@ -97,4 +111,6 @@ percentage=int(input('\nEnter Class 12 percentage:'))
 
 
 #select * from colleges where 
+
+print("Hello this is my query",fee_range_statement_for_query)
 
