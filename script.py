@@ -5,7 +5,6 @@ cur=mycon.cursor()                                                              
 print('''
 WELCOME TO THE COLLEGE FINDER PROGRAM!
 ----------------------------------------
-
 Search for the course you want to study from the index below
 and type the associated number.
 \n--------------------------------------------------------------------------------\n''')
@@ -86,7 +85,6 @@ citydict={
 print('''\n--------------------------------------------------------------------------------\n
 What is your ideal fee range? Browse in the index below
 and type the associated number.
-
 *Don't worry, there will be scholarship websites provided for each result later!*
 \n--------------------------------------------------------------------------------\n''')
 print('''Enter 1 \n   for <1 Lakhs P.A.\n
@@ -97,16 +95,15 @@ Enter 5 \n  for >20 Lakhs P.A.\n
 Enter 0 \n  TO SKIP QUESTION\n''')
 
 fee=int(input('\nEnter fee range number:'))
-
+if fee == 0:
+    fee = 5
 
 #PERCENTAGE IN CLASS 12
 
 
 print('''\n--------------------------------------------------------------------------------\n
 What was your percentage scored in Class 12 Final Exams (or equivalent)?
-
 Type the numeric value ONLY.
-
 Example:
 Enter Class 12 percentage: 80
 \n--------------------------------------------------------------------------------\n''')
@@ -118,9 +115,10 @@ percentage=int(input('\nEnter Class 12 percentage:'))
 
 
 values=(coursedict.get(course),citydict.get(city),fee,percentage)
+print(values)
 
-query='select * from colleges where Course like %%s% and City like %%s% and fee_type=%s and Percentage_Required<%s;'
-cur.execute(query,values)
+query='select * from colleges where Course like "%{}%" and City like "%{}%" and fee_type<={} and Percentage_Required<{};'.format(coursedict.get(course),citydict.get(city),fee,percentage)
+cur.execute(query)
 data=cur.fetchall()
 for row in data:
     print(row)
