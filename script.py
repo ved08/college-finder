@@ -98,7 +98,7 @@ percentage=int(input('\nEnter Class 12 percentage:'))
 
 #select * from colleges where 
 
-'''query='select * from colleges where Course=%s and City=%s and Fee_Range_PA=%s and Percentage_Required<%s;'
+'''query='select * from colleges where Course=%s and City=%s and %s and Percentage_Required<%s;'
 
 tuple1=(coursedict.get(course),citydict.get(city),FEE RANGE PART KO UPDATE KARO SAALO,percentage)
 
