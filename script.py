@@ -1,11 +1,7 @@
 import mysql.connector as sql
 mycon=sql.connect(host='localhost',user='root',passwd='ved08',database='colleges')           #connectivity established
 cur=mycon.cursor()                                                                            #cursor instance created
-      
-      
-      
-      
-      
+           
 print('''
 WELCOME TO THE COLLEGE FINDER PROGRAM!
 ----------------------------------------
@@ -96,14 +92,6 @@ Enter 0 \n  TO SKIP QUESTION\n''')
 
 fee=int(input('\nEnter fee range number:'))
 
-feedict={1: [0, 100000], 2: [100000,500000], 3: [500000, 1000000], 4: [1000000, 2000000], 5: [2000000, 9999999999999]}
-fee_range_statement_for_query = None
-if fee == 0:
-    fee_range_statement_for_query = None    
-else:
-    fee_range_statement_for_query = "colleges.fee_range_pa BETWEEN {} AND {}".format(feedict[fee][0], feedict[fee][1])
-
-
 
 
 #PERCENTAGE IN CLASS 12
@@ -128,11 +116,10 @@ percentage=int(input('\nEnter Class 12 percentage:'))
 
 
 
-print("Hello this is my query",fee_range_statement_for_query)
 
-tuple1=(coursedict.get(course),citydict.get(city),'FEE RANGE PART KO UPDATE KARO SAALO',percentage)
+tuple1=(coursedict.get(course),citydict.get(city),fee,percentage)
 
-query='select * from colleges where Course like %s and City like %s and %s and Percentage_Required<%s;'
+query='select * from colleges where Course like %s and City like %s and fee_range=%s and Percentage_Required<%s;'
 cur.execute(query,tuple1)
 data=cur.fetchall()
 for row in data:
