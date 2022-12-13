@@ -114,3 +114,14 @@ percentage=int(input('\nEnter Class 12 percentage:'))
 
 print("Hello this is my query",fee_range_statement_for_query)
 
+'''query='select * from colleges where Course=%s and City=%s and %s and Percentage_Required<%s;'
+
+tuple1=(coursedict.get(course),citydict.get(city),FEE RANGE PART KO UPDATE KARO SAALO,percentage)
+
+use a tuple to store variable values and se statement
+cur.execute(query,tuple1)
+data=cur.fetchall()
+for row in data:
+    print(row)
+mycon.close()
+'''
