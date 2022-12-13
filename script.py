@@ -120,6 +120,22 @@ print(values)
 query='select * from colleges where Course like "%{}%" and City like "%{}%" and fee_type<={} and Percentage_Required<{};'.format(coursedict.get(course),citydict.get(city),fee,percentage)
 cur.execute(query)
 data=cur.fetchall()
-for row in data:
-    print(row)
+print('''\n
+The top results matching your choices are:
+\n-------------------------------------------\n''')
+
+for i in data:
+    x=len(i[1])
+    str='-'
+    print(i[0],'\n\n',i[1],'\n',str*x,
+          '\n\n Courses offered:',i[2],
+          '\n\n College website:',i[3],
+          '\n\n Scholarship website:',i[4],
+          '\n\n City/Cities with campuses:',i[5],
+          '\n\n Exam required for admission:',i[6],
+          '\n\n Percentage required for admission:',i[7],
+          '\n\n Fee range Per Annum (in Rupees):',i[8],
+          '\n')
+    print('\n----------------------------------------------------------------------------------------------------\n')
+
 mycon.close()
