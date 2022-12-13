@@ -10,7 +10,9 @@ Search for the course you want to study from the index below
 and type the associated number.
 \n--------------------------------------------------------------------------------\n''')
 
+
 #COURSES
+
 
 print('''Enter 1 \n  for Bachelor of Science (B.Sc)\n
 Enter 2 \n  for Bachelor of Technology (B.Tech)\n
@@ -35,7 +37,9 @@ coursedict={1:'B.Sc',
             9:'B.Arch',
             0:'C.A'}
 
+
 #CITIES
+
 
 print('''\n--------------------------------------------------------------------------------\n
 Search for your preferred city from the index below
@@ -75,7 +79,9 @@ citydict={
     0:'%'
 }
 
+
 #FEE RANGE
+
 
 print('''\n--------------------------------------------------------------------------------\n
 What is your ideal fee range? Browse in the index below
@@ -92,7 +98,9 @@ Enter 0 \n  TO SKIP QUESTION\n''')
 
 fee=int(input('\nEnter fee range number:'))
 
+
 #PERCENTAGE IN CLASS 12
+
 
 print('''\n--------------------------------------------------------------------------------\n
 What was your percentage scored in Class 12 Final Exams (or equivalent)?
@@ -109,10 +117,10 @@ percentage=int(input('\nEnter Class 12 percentage:'))
 #CREATING THE QUERY WITH PARAMETERISED VALUES AND EXTRACTING DATA
 
 
-tuple1=(coursedict.get(course),citydict.get(city),fee,percentage)
+values=(coursedict.get(course),citydict.get(city),fee,percentage)
 
-query='select * from colleges where Course like %s and City like %s and fee_range=%s and Percentage_Required<%s;'
-cur.execute(query,tuple1)
+query='select * from colleges where Course like %%s% and City like %%s% and fee_type=%s and Percentage_Required<%s;'
+cur.execute(query,values)
 data=cur.fetchall()
 for row in data:
     print(row)
