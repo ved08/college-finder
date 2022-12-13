@@ -4,6 +4,7 @@ cur=mycon.cursor()                                                              
       
       
       
+      
 print('''
 WELCOME TO THE COLLEGE FINDER PROGRAM!
 ----------------------------------------
@@ -24,8 +25,16 @@ Enter 9 \n  for Bachelor of Architecture (B.Arch)\n
 Enter 10 \n  for Chartered Accountancy (C.A)  ''')   
 course=int(input('\nEnter course number:'))
 
-coursedict={1:'B.Sc',2:'B.Tech',3:'B.A',4:'MBBS',5:'B.Com',
-            6:'B.Des',7:'B.F.A',8:'B.B.A',9:'B.Arch',10:'C.A'}
+coursedict={1:'B.Sc',
+            2:'B.Tech',
+            3:'B.A',
+            4:'MBBS',
+            5:'B.Com',
+            6:'B.Des',
+            7:'B.F.A',
+            8:'B.B.A',
+            9:'B.Arch',1
+            0:'C.A'}
 
 #CITIES
 
@@ -112,16 +121,28 @@ percentage=int(input('\nEnter Class 12 percentage:'))
 
 #select * from colleges where 
 
+
+#extract fee values and convert to int
+
+
+
 print("Hello this is my query",fee_range_statement_for_query)
 
-'''query='select * from colleges where Course=%s and City=%s and %s and Percentage_Required<%s;'
+if city==0:
+    query='select * from colleges where Course=%s and %s and Percentage_Required<%s;'
+    tuple1=(coursedict.get(course),FEE RANGE PART KO UPDATE KARO SAALO,percentage)
 
-tuple1=(coursedict.get(course),citydict.get(city),FEE RANGE PART KO UPDATE KARO SAALO,percentage)
+    cur.execute(query,tuple1)
+    data=cur.fetchall()
+    for row in data:
+        print(row)
+else:
+    query='select * from colleges where Course=%s and City=%s and %s and Percentage_Required<%s;'
+    tuple1=(coursedict.get(course),citydict.get(city),FEE RANGE PART KO UPDATE KARO SAALO,percentage)
 
-use a tuple to store variable values and se statement
-cur.execute(query,tuple1)
-data=cur.fetchall()
-for row in data:
-    print(row)
+    cur.execute(query,tuple1)
+    data=cur.fetchall()
+    for row in data:
+        print(row)
 mycon.close()
-'''
+
